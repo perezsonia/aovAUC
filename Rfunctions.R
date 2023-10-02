@@ -61,7 +61,7 @@ subjects_data <- function(data){
 
    rats <- as.data.frame(
       do.call(rbind, by(data, data$ID, function(x){
-         TrT <- mean(x$TrT)
+         TrT <- unique(x$TrT)
          A <- vAUC(x$Values, x$Gr)
          n0 <- sum(x$Gr == 0); n1 <- sum(x$Gr == 1)
          c(TrT = TrT, n0 = n0, n1 = n1, AUC = A$AUC, vAUC = A$vAUC)
